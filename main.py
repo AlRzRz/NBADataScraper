@@ -6,14 +6,21 @@ def main():
     start = time.time()
 
     nbaData = mainScrape()
-    csv_file = "1996-2024.csv"
+    # csv_file = "1996-2024.csv"
+    csv_file = 'regularStats96-24.csv'
 
     headers = [
-        "YEAR", "PLAYER", "TEAM", "AGE", "GP", "W", "L", "MIN", 
-        "DEF RTG", "DREB", "DREB%", "%DREB", "STL", "STL%", 
-        "BLK", "%BLK", "OPP PTS OFF TOV", "OPP PTS 2ND CHANCE", 
-        "OPP PTS FB", "OPP PTS PAINT", "DEF WS"
+    "YEAR", "PLAYER", "TEAM", "AGE", "GP", "W", "L", "MIN", "PTS", "FGM", "FGA", "FG%", 
+    "3PM", "3PA", "3P%", "FTM", "FTA", "FT%", "OREB", "DREB", "REB", "AST", 
+    "TOV", "STL", "BLK", "PF", "FP", "DD2", "TD3", "+/-"
     ]
+
+    # headers = [
+    #     "YEAR", "PLAYER", "TEAM", "AGE", "GP", "W", "L", "MIN", 
+    #     "DEF RTG", "DREB", "DREB%", "%DREB", "STL", "STL%", 
+    #     "BLK", "%BLK", "OPP PTS OFF TOV", "OPP PTS 2ND CHANCE", 
+    #     "OPP PTS FB", "OPP PTS PAINT", "DEF WS"
+    # ]
 
     with open(csv_file, mode='w', newline='', encoding='utf-8') as file:  # Specify encoding='utf-8'
         writer = csv.writer(file)

@@ -101,12 +101,22 @@ def seasonScrape(driver, finalLst, year):
             print(f"Encountered a stale element while moving to the next page for year {year}. Retrying... Error: {e}")
             time.sleep(1)  # Small delay before retrying
 
+# def nextPage(driver):
+#     try:
+#         button = WebDriverWait(driver, 10).until(
+#             EC.element_to_be_clickable((By.XPATH, routes.buttons['nextPageButton']))
+#         )
+#         button.click()
+#     except TimeoutException:
+#         print("Next page button could not be clicked.")
+
+
 def nextPage(driver):
     try:
         button = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, routes.buttons['nextPageButton']))
+            EC.presence_of_element_located((By.XPATH, routes.buttons['nextPageButton']))
         )
-        button.click()
+        driver.execute_script("arguments[0].click();", button)
     except TimeoutException:
         print("Next page button could not be clicked.")
 
